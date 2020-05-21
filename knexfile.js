@@ -1,3 +1,4 @@
+require('dotenv').config()
 const pgConnection = process.env.DATABASE_URL || "postgresql://postgres@localhost/hobbits";
 
 module.exports = {
@@ -30,7 +31,11 @@ module.exports = {
 
   production: {
     client: "pg",
-    connection: pgConnection,
+    connection: {
+      database: process.env.DB_DATABASE,
+      user: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD
+    },
     pool: {
       min: 2,
       max: 10,
