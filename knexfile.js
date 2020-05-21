@@ -31,11 +31,12 @@ module.exports = {
 
   production: {
     client: "pg",
-    connection: {
-      database: process.env.DB_DATABASE,
-      user: process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD
-    },
+    connection: pgConnection,
+    // connection: {
+    //   database: process.env.DB_DATABASE,
+    //   user: process.env.DB_USERNAME,
+    //   password: process.env.DB_PASSWORD
+    // },
     pool: {
       min: 2,
       max: 10,
